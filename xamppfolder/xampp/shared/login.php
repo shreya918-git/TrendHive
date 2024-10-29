@@ -17,10 +17,9 @@
             header("Location: /xamppfolder/xampp/vendor/home.php");
             exit;
         } else {
-            header("Location: /xamppfolder/xampp/customer/home.php");
+            header("Location: /xamppfolder/xampp/customer/home.html");
             exit;
-        }
-        
+        }        
     }
     else{
         echo "no data found";
