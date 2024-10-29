@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <style>
+    *{
+        box-sizing: border-box;
+    }
+    #img{
+       float:left;
+       height: 100vh;
+       width:45vw;
+       clear: none;
+    }
+    #text{
+        position: absolute;
+        top:50%;
+        right:58%;
+        word-wrap: break-word;
+        width:40vw;
+    }
+    #form{
+        position: absolute;
+        top:30%;
+        left:50%;
+        width:40vw;
+    }
+    h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    }
+   </style>
+</head>
+<body>
+    <img src="https://plus.unsplash.com/premium_photo-1726729221801-f43f25d3b42e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="img">
+    <div id="text">Empowered over 2 million readers with insightful, diverse content across 500+ successful blog posts.</div>
+    <div id="form"><form action="signup2.php" method="POST" class="ms-4" onsubmit="validate()">
+        <h2 class="text-center mb-4">SignUp</h2>
+        <input type="text" placeholder="Enter Username" name="name" required class="form-control mt-2 text-center">
+        <input type="email" placeholder="Enter Mail" name="mail" required class="form-control mt-2 text-center">
+        <input type="password" placeholder="Enter Password" name="password" required class="form-control mt-2 text-center" minlength="8" maxlength="15" id="one">
+        <input type="password" placeholder="Confirm Password"  required class="form-control mt-2 text-center" minlength="8" maxlength="15" id="two">
+        <div class="text-center mt-4"><button type="submit" id="button">SignUp</button></div>
+    </form>
+    <h6 class="mt-4 text-end">Already have an account?</h6>
+    <div class="text-end"><a href="login.html">Login Here:)</a></div>
+</div>
+    <script>
+        var div=document.getElementById("text");
+        i=0;
+        txt=div.innerText;
+        div.innerHTML="";
+        function type() {
+        if (i < txt.length) {  // Check if we have more characters to display
+            div.innerHTML += txt[i];
+            i++;
+        } else {
+            clearInterval(typingInterval); // Stop the interval when done
+        }
+        div.style.fontSize="x-large";
+        div.style.fontWeight="bold";
+    }
+    var typingInterval = setInterval(type, 100); 
+    var pass1=document.getElementById("one");
+    var pass2=document.getElementById("two");
+    function validate(){
+    if(pass1.value!=pass2.value){
+        return false;
+    }}
+    </script>
+</body>
+</html>
