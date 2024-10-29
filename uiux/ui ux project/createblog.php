@@ -1,6 +1,3 @@
-<?php
-include "authenticate.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
