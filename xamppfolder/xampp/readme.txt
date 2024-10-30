@@ -1,4 +1,5 @@
-Mnaging product 
+Managing product 
+Vendor-
 -Add-
 -UI
     HTML
@@ -23,15 +24,8 @@ Mnaging product
 -View
 -Edit
 -Delete
-Manage the products-
-View orders
-assign to distributors
-track the order
 Customer-
 -View
 -Add to cart 
 -Edit 
 -Delete
--Place order 
--Mode of payment 
--Track Order 
