@@ -14,10 +14,10 @@
       if ($result->num_rows>0){
         $_SESSION['loggedin']=true;
         if ($usertype == 'vendor') {
-            header("Location: /xamppfolder/xampp/vendor/home.php");
+            header("Location: /xamppfolder/xampp/vendor/view.php");
             exit;
         } else {
-            header("Location: /xamppfolder/xampp/customer/home.html");
+            header("Location: /xamppfolder/xampp/vendor/cv2.php");
             exit;
         }        
     }

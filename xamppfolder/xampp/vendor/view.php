@@ -19,12 +19,30 @@
     .button{
         margin-top: 5%;
     }
+    nav{
+        background-color: red;
+        height: 20%;
+        width:100vw;
+    }
+    #one{
+         background-color: lightgreen;
+         position:absolute;
+         left:90%;
+         bottom:90%;
+         width:fit-content;
+         height:fit-content;
+    }
   </style>
 </head>
+<body>
+    <nav>
+    <a href="home.php"><button id="one">Upload an item</button></a>
+</nav>
+</body>
 </html>
 <?php
-include "vendor.php";
 include "authorise.php";
+$conn=new mysqli("localhost","root","","project",3306);
 $result="select * from add_product where owner=$_SESSION[userid]";
 $row=mysqli_query($conn,$result);
 while ($value=mysqli_fetch_assoc($row))

@@ -8,7 +8,7 @@
         background-color:#F3F0F9 ;
         margin:10%;
         height:fit-content;
-        width:20%;
+        width:fit-content;
         padding:4%;
         text-align: center;
         border:2px groove black;
@@ -23,12 +23,26 @@
   </style>
 </head>
 <body>
-    <h1?>My Cart</h1>
+    <h1 class="text-center" id="cart">My Cart</h1>
+    <script>
+        var cart=document.getElementById("cart");
+        var i=0;
+        var text=cart.innerHTML;
+        cart.innerHTML="";
+        function type(){
+            if(i<text.length){
+              cart.innerHTML+=text[i];
+              i++;
+            }
+            setTimeout(type,200);
+        }
+        type();
+    </script>
 </body>
 </html>
 <?php
 include "authorise.php";
-include "fetch.php";
+$conn=new mysqli("localhost","root","","project",3306);
 $pid=$_GET['pid'];
 $img=$_GET['img'];
 $query1="select name,details,price from add_product where pid='$pid'";
@@ -37,18 +51,20 @@ $row=mysqli_fetch_assoc($result);
 $name=$row['name'];
 $desc=$row['details'];
 $price=$row['price'];
-$query="insert into cart(pid,name,descr,price,imgpath) values('$pid','$name','$desc','$price','$img')";
+if(!empty($name) && !empty($desc) && !empty($price)){
+$query="insert into cart(name,descr,price,imgpath,pid) values('$name','$desc','$price','$img','$pid')";
 mysqli_query($conn,$query);
-$query3='select * from cart';
+}
+$query3="select * from cart";
 $r2=mysqli_query($conn,$query3);
 while($r3=mysqli_fetch_assoc($r2)){
     echo "<div class='container'>
            <h2>$r3[name]</h2>
-           <h4>$r3[desc]</h4>
+           <h4>$r3[descr]</h4>
            <h4>$r3[price]</h4>
            <img src='$r3[imgpath]' class='images'>
            <div class='button'>
-           <a href='deletecart.php?cid=$r3[cid]'><button>Delete</button></a></div>
+           <a href='../customer/deletecart.php?cid=$r3[cid]'><button>Delete</button></a></div>
            </div>";
 }
 ?>
